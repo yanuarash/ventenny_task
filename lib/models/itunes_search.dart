@@ -17,11 +17,30 @@ class ItunesSearch with _$ItunesSearch {
 @freezed
 class ItunesSearchItem with _$ItunesSearchItem {
   const factory ItunesSearchItem({
-    @JsonKey(name: 'artistName') required String artistName,
-    @JsonKey(name: 'artworkUrl100') required String artwork,
-    @JsonKey(name: 'previewUrl') String? previewUrl,
-    @JsonKey(name: 'trackName') required String trackName,
-    @JsonKey(name: 'collectionName') required String collectionName,
+    required String wrapperType,
+    required String kind,
+    required int artistId,
+    required int trackId,
+    required String artistName,
+    required String artwork,
+    required String previewUrl,
+    required String trackName,
+    required String collectionName,
+    required String trackCensoredName,
+    required String artistViewUrl,
+    required String trackViewUrl,
+    required String artworkUrl30,
+    required String artworkUrl60,
+    required String artworkUrl100,
+    required double collectionPrice,
+    required double trackPrice,
+    required String releaseDate,
+    required String collectionExplicitness,
+    required String trackExplicitness,
+    required int trackTimeMillis,
+    required String country,
+    required String currency,
+    required String primaryGenreName,
   }) = _ItunesSearchItem;
 
   factory ItunesSearchItem.fromJson(Map<String, dynamic> json) =>

@@ -184,16 +184,30 @@ ItunesSearchItem _$ItunesSearchItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ItunesSearchItem {
-  @JsonKey(name: 'artistName')
+  String get wrapperType => throw _privateConstructorUsedError;
+  String get kind => throw _privateConstructorUsedError;
+  int get artistId => throw _privateConstructorUsedError;
+  int get trackId => throw _privateConstructorUsedError;
   String get artistName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'artworkUrl100')
   String get artwork => throw _privateConstructorUsedError;
-  @JsonKey(name: 'previewUrl')
-  String? get previewUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'trackName')
+  String get previewUrl => throw _privateConstructorUsedError;
   String get trackName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'collectionName')
   String get collectionName => throw _privateConstructorUsedError;
+  String get trackCensoredName => throw _privateConstructorUsedError;
+  String get artistViewUrl => throw _privateConstructorUsedError;
+  String get trackViewUrl => throw _privateConstructorUsedError;
+  String get artworkUrl30 => throw _privateConstructorUsedError;
+  String get artworkUrl60 => throw _privateConstructorUsedError;
+  String get artworkUrl100 => throw _privateConstructorUsedError;
+  double get collectionPrice => throw _privateConstructorUsedError;
+  double get trackPrice => throw _privateConstructorUsedError;
+  String get releaseDate => throw _privateConstructorUsedError;
+  String get collectionExplicitness => throw _privateConstructorUsedError;
+  String get trackExplicitness => throw _privateConstructorUsedError;
+  int get trackTimeMillis => throw _privateConstructorUsedError;
+  String get country => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
+  String get primaryGenreName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -208,11 +222,30 @@ abstract class $ItunesSearchItemCopyWith<$Res> {
       _$ItunesSearchItemCopyWithImpl<$Res, ItunesSearchItem>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'artistName') String artistName,
-      @JsonKey(name: 'artworkUrl100') String artwork,
-      @JsonKey(name: 'previewUrl') String? previewUrl,
-      @JsonKey(name: 'trackName') String trackName,
-      @JsonKey(name: 'collectionName') String collectionName});
+      {String wrapperType,
+      String kind,
+      int artistId,
+      int trackId,
+      String artistName,
+      String artwork,
+      String previewUrl,
+      String trackName,
+      String collectionName,
+      String trackCensoredName,
+      String artistViewUrl,
+      String trackViewUrl,
+      String artworkUrl30,
+      String artworkUrl60,
+      String artworkUrl100,
+      double collectionPrice,
+      double trackPrice,
+      String releaseDate,
+      String collectionExplicitness,
+      String trackExplicitness,
+      int trackTimeMillis,
+      String country,
+      String currency,
+      String primaryGenreName});
 }
 
 /// @nodoc
@@ -228,13 +261,48 @@ class _$ItunesSearchItemCopyWithImpl<$Res, $Val extends ItunesSearchItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? wrapperType = null,
+    Object? kind = null,
+    Object? artistId = null,
+    Object? trackId = null,
     Object? artistName = null,
     Object? artwork = null,
-    Object? previewUrl = freezed,
+    Object? previewUrl = null,
     Object? trackName = null,
     Object? collectionName = null,
+    Object? trackCensoredName = null,
+    Object? artistViewUrl = null,
+    Object? trackViewUrl = null,
+    Object? artworkUrl30 = null,
+    Object? artworkUrl60 = null,
+    Object? artworkUrl100 = null,
+    Object? collectionPrice = null,
+    Object? trackPrice = null,
+    Object? releaseDate = null,
+    Object? collectionExplicitness = null,
+    Object? trackExplicitness = null,
+    Object? trackTimeMillis = null,
+    Object? country = null,
+    Object? currency = null,
+    Object? primaryGenreName = null,
   }) {
     return _then(_value.copyWith(
+      wrapperType: null == wrapperType
+          ? _value.wrapperType
+          : wrapperType // ignore: cast_nullable_to_non_nullable
+              as String,
+      kind: null == kind
+          ? _value.kind
+          : kind // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistId: null == artistId
+          ? _value.artistId
+          : artistId // ignore: cast_nullable_to_non_nullable
+              as int,
+      trackId: null == trackId
+          ? _value.trackId
+          : trackId // ignore: cast_nullable_to_non_nullable
+              as int,
       artistName: null == artistName
           ? _value.artistName
           : artistName // ignore: cast_nullable_to_non_nullable
@@ -243,10 +311,10 @@ class _$ItunesSearchItemCopyWithImpl<$Res, $Val extends ItunesSearchItem>
           ? _value.artwork
           : artwork // ignore: cast_nullable_to_non_nullable
               as String,
-      previewUrl: freezed == previewUrl
+      previewUrl: null == previewUrl
           ? _value.previewUrl
           : previewUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       trackName: null == trackName
           ? _value.trackName
           : trackName // ignore: cast_nullable_to_non_nullable
@@ -254,6 +322,66 @@ class _$ItunesSearchItemCopyWithImpl<$Res, $Val extends ItunesSearchItem>
       collectionName: null == collectionName
           ? _value.collectionName
           : collectionName // ignore: cast_nullable_to_non_nullable
+              as String,
+      trackCensoredName: null == trackCensoredName
+          ? _value.trackCensoredName
+          : trackCensoredName // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistViewUrl: null == artistViewUrl
+          ? _value.artistViewUrl
+          : artistViewUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      trackViewUrl: null == trackViewUrl
+          ? _value.trackViewUrl
+          : trackViewUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      artworkUrl30: null == artworkUrl30
+          ? _value.artworkUrl30
+          : artworkUrl30 // ignore: cast_nullable_to_non_nullable
+              as String,
+      artworkUrl60: null == artworkUrl60
+          ? _value.artworkUrl60
+          : artworkUrl60 // ignore: cast_nullable_to_non_nullable
+              as String,
+      artworkUrl100: null == artworkUrl100
+          ? _value.artworkUrl100
+          : artworkUrl100 // ignore: cast_nullable_to_non_nullable
+              as String,
+      collectionPrice: null == collectionPrice
+          ? _value.collectionPrice
+          : collectionPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      trackPrice: null == trackPrice
+          ? _value.trackPrice
+          : trackPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      releaseDate: null == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      collectionExplicitness: null == collectionExplicitness
+          ? _value.collectionExplicitness
+          : collectionExplicitness // ignore: cast_nullable_to_non_nullable
+              as String,
+      trackExplicitness: null == trackExplicitness
+          ? _value.trackExplicitness
+          : trackExplicitness // ignore: cast_nullable_to_non_nullable
+              as String,
+      trackTimeMillis: null == trackTimeMillis
+          ? _value.trackTimeMillis
+          : trackTimeMillis // ignore: cast_nullable_to_non_nullable
+              as int,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      primaryGenreName: null == primaryGenreName
+          ? _value.primaryGenreName
+          : primaryGenreName // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -268,11 +396,30 @@ abstract class _$$_ItunesSearchItemCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'artistName') String artistName,
-      @JsonKey(name: 'artworkUrl100') String artwork,
-      @JsonKey(name: 'previewUrl') String? previewUrl,
-      @JsonKey(name: 'trackName') String trackName,
-      @JsonKey(name: 'collectionName') String collectionName});
+      {String wrapperType,
+      String kind,
+      int artistId,
+      int trackId,
+      String artistName,
+      String artwork,
+      String previewUrl,
+      String trackName,
+      String collectionName,
+      String trackCensoredName,
+      String artistViewUrl,
+      String trackViewUrl,
+      String artworkUrl30,
+      String artworkUrl60,
+      String artworkUrl100,
+      double collectionPrice,
+      double trackPrice,
+      String releaseDate,
+      String collectionExplicitness,
+      String trackExplicitness,
+      int trackTimeMillis,
+      String country,
+      String currency,
+      String primaryGenreName});
 }
 
 /// @nodoc
@@ -286,13 +433,48 @@ class __$$_ItunesSearchItemCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? wrapperType = null,
+    Object? kind = null,
+    Object? artistId = null,
+    Object? trackId = null,
     Object? artistName = null,
     Object? artwork = null,
-    Object? previewUrl = freezed,
+    Object? previewUrl = null,
     Object? trackName = null,
     Object? collectionName = null,
+    Object? trackCensoredName = null,
+    Object? artistViewUrl = null,
+    Object? trackViewUrl = null,
+    Object? artworkUrl30 = null,
+    Object? artworkUrl60 = null,
+    Object? artworkUrl100 = null,
+    Object? collectionPrice = null,
+    Object? trackPrice = null,
+    Object? releaseDate = null,
+    Object? collectionExplicitness = null,
+    Object? trackExplicitness = null,
+    Object? trackTimeMillis = null,
+    Object? country = null,
+    Object? currency = null,
+    Object? primaryGenreName = null,
   }) {
     return _then(_$_ItunesSearchItem(
+      wrapperType: null == wrapperType
+          ? _value.wrapperType
+          : wrapperType // ignore: cast_nullable_to_non_nullable
+              as String,
+      kind: null == kind
+          ? _value.kind
+          : kind // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistId: null == artistId
+          ? _value.artistId
+          : artistId // ignore: cast_nullable_to_non_nullable
+              as int,
+      trackId: null == trackId
+          ? _value.trackId
+          : trackId // ignore: cast_nullable_to_non_nullable
+              as int,
       artistName: null == artistName
           ? _value.artistName
           : artistName // ignore: cast_nullable_to_non_nullable
@@ -301,10 +483,10 @@ class __$$_ItunesSearchItemCopyWithImpl<$Res>
           ? _value.artwork
           : artwork // ignore: cast_nullable_to_non_nullable
               as String,
-      previewUrl: freezed == previewUrl
+      previewUrl: null == previewUrl
           ? _value.previewUrl
           : previewUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       trackName: null == trackName
           ? _value.trackName
           : trackName // ignore: cast_nullable_to_non_nullable
@@ -312,6 +494,66 @@ class __$$_ItunesSearchItemCopyWithImpl<$Res>
       collectionName: null == collectionName
           ? _value.collectionName
           : collectionName // ignore: cast_nullable_to_non_nullable
+              as String,
+      trackCensoredName: null == trackCensoredName
+          ? _value.trackCensoredName
+          : trackCensoredName // ignore: cast_nullable_to_non_nullable
+              as String,
+      artistViewUrl: null == artistViewUrl
+          ? _value.artistViewUrl
+          : artistViewUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      trackViewUrl: null == trackViewUrl
+          ? _value.trackViewUrl
+          : trackViewUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      artworkUrl30: null == artworkUrl30
+          ? _value.artworkUrl30
+          : artworkUrl30 // ignore: cast_nullable_to_non_nullable
+              as String,
+      artworkUrl60: null == artworkUrl60
+          ? _value.artworkUrl60
+          : artworkUrl60 // ignore: cast_nullable_to_non_nullable
+              as String,
+      artworkUrl100: null == artworkUrl100
+          ? _value.artworkUrl100
+          : artworkUrl100 // ignore: cast_nullable_to_non_nullable
+              as String,
+      collectionPrice: null == collectionPrice
+          ? _value.collectionPrice
+          : collectionPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      trackPrice: null == trackPrice
+          ? _value.trackPrice
+          : trackPrice // ignore: cast_nullable_to_non_nullable
+              as double,
+      releaseDate: null == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      collectionExplicitness: null == collectionExplicitness
+          ? _value.collectionExplicitness
+          : collectionExplicitness // ignore: cast_nullable_to_non_nullable
+              as String,
+      trackExplicitness: null == trackExplicitness
+          ? _value.trackExplicitness
+          : trackExplicitness // ignore: cast_nullable_to_non_nullable
+              as String,
+      trackTimeMillis: null == trackTimeMillis
+          ? _value.trackTimeMillis
+          : trackTimeMillis // ignore: cast_nullable_to_non_nullable
+              as int,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      primaryGenreName: null == primaryGenreName
+          ? _value.primaryGenreName
+          : primaryGenreName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -321,34 +563,86 @@ class __$$_ItunesSearchItemCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ItunesSearchItem implements _ItunesSearchItem {
   const _$_ItunesSearchItem(
-      {@JsonKey(name: 'artistName') required this.artistName,
-      @JsonKey(name: 'artworkUrl100') required this.artwork,
-      @JsonKey(name: 'previewUrl') this.previewUrl,
-      @JsonKey(name: 'trackName') required this.trackName,
-      @JsonKey(name: 'collectionName') required this.collectionName});
+      {required this.wrapperType,
+      required this.kind,
+      required this.artistId,
+      required this.trackId,
+      required this.artistName,
+      required this.artwork,
+      required this.previewUrl,
+      required this.trackName,
+      required this.collectionName,
+      required this.trackCensoredName,
+      required this.artistViewUrl,
+      required this.trackViewUrl,
+      required this.artworkUrl30,
+      required this.artworkUrl60,
+      required this.artworkUrl100,
+      required this.collectionPrice,
+      required this.trackPrice,
+      required this.releaseDate,
+      required this.collectionExplicitness,
+      required this.trackExplicitness,
+      required this.trackTimeMillis,
+      required this.country,
+      required this.currency,
+      required this.primaryGenreName});
 
   factory _$_ItunesSearchItem.fromJson(Map<String, dynamic> json) =>
       _$$_ItunesSearchItemFromJson(json);
 
   @override
-  @JsonKey(name: 'artistName')
+  final String wrapperType;
+  @override
+  final String kind;
+  @override
+  final int artistId;
+  @override
+  final int trackId;
+  @override
   final String artistName;
   @override
-  @JsonKey(name: 'artworkUrl100')
   final String artwork;
   @override
-  @JsonKey(name: 'previewUrl')
-  final String? previewUrl;
+  final String previewUrl;
   @override
-  @JsonKey(name: 'trackName')
   final String trackName;
   @override
-  @JsonKey(name: 'collectionName')
   final String collectionName;
+  @override
+  final String trackCensoredName;
+  @override
+  final String artistViewUrl;
+  @override
+  final String trackViewUrl;
+  @override
+  final String artworkUrl30;
+  @override
+  final String artworkUrl60;
+  @override
+  final String artworkUrl100;
+  @override
+  final double collectionPrice;
+  @override
+  final double trackPrice;
+  @override
+  final String releaseDate;
+  @override
+  final String collectionExplicitness;
+  @override
+  final String trackExplicitness;
+  @override
+  final int trackTimeMillis;
+  @override
+  final String country;
+  @override
+  final String currency;
+  @override
+  final String primaryGenreName;
 
   @override
   String toString() {
-    return 'ItunesSearchItem(artistName: $artistName, artwork: $artwork, previewUrl: $previewUrl, trackName: $trackName, collectionName: $collectionName)';
+    return 'ItunesSearchItem(wrapperType: $wrapperType, kind: $kind, artistId: $artistId, trackId: $trackId, artistName: $artistName, artwork: $artwork, previewUrl: $previewUrl, trackName: $trackName, collectionName: $collectionName, trackCensoredName: $trackCensoredName, artistViewUrl: $artistViewUrl, trackViewUrl: $trackViewUrl, artworkUrl30: $artworkUrl30, artworkUrl60: $artworkUrl60, artworkUrl100: $artworkUrl100, collectionPrice: $collectionPrice, trackPrice: $trackPrice, releaseDate: $releaseDate, collectionExplicitness: $collectionExplicitness, trackExplicitness: $trackExplicitness, trackTimeMillis: $trackTimeMillis, country: $country, currency: $currency, primaryGenreName: $primaryGenreName)';
   }
 
   @override
@@ -356,6 +650,12 @@ class _$_ItunesSearchItem implements _ItunesSearchItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ItunesSearchItem &&
+            (identical(other.wrapperType, wrapperType) ||
+                other.wrapperType == wrapperType) &&
+            (identical(other.kind, kind) || other.kind == kind) &&
+            (identical(other.artistId, artistId) ||
+                other.artistId == artistId) &&
+            (identical(other.trackId, trackId) || other.trackId == trackId) &&
             (identical(other.artistName, artistName) ||
                 other.artistName == artistName) &&
             (identical(other.artwork, artwork) || other.artwork == artwork) &&
@@ -364,13 +664,67 @@ class _$_ItunesSearchItem implements _ItunesSearchItem {
             (identical(other.trackName, trackName) ||
                 other.trackName == trackName) &&
             (identical(other.collectionName, collectionName) ||
-                other.collectionName == collectionName));
+                other.collectionName == collectionName) &&
+            (identical(other.trackCensoredName, trackCensoredName) ||
+                other.trackCensoredName == trackCensoredName) &&
+            (identical(other.artistViewUrl, artistViewUrl) ||
+                other.artistViewUrl == artistViewUrl) &&
+            (identical(other.trackViewUrl, trackViewUrl) ||
+                other.trackViewUrl == trackViewUrl) &&
+            (identical(other.artworkUrl30, artworkUrl30) ||
+                other.artworkUrl30 == artworkUrl30) &&
+            (identical(other.artworkUrl60, artworkUrl60) ||
+                other.artworkUrl60 == artworkUrl60) &&
+            (identical(other.artworkUrl100, artworkUrl100) ||
+                other.artworkUrl100 == artworkUrl100) &&
+            (identical(other.collectionPrice, collectionPrice) ||
+                other.collectionPrice == collectionPrice) &&
+            (identical(other.trackPrice, trackPrice) ||
+                other.trackPrice == trackPrice) &&
+            (identical(other.releaseDate, releaseDate) ||
+                other.releaseDate == releaseDate) &&
+            (identical(other.collectionExplicitness, collectionExplicitness) ||
+                other.collectionExplicitness == collectionExplicitness) &&
+            (identical(other.trackExplicitness, trackExplicitness) ||
+                other.trackExplicitness == trackExplicitness) &&
+            (identical(other.trackTimeMillis, trackTimeMillis) ||
+                other.trackTimeMillis == trackTimeMillis) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.currency, currency) ||
+                other.currency == currency) &&
+            (identical(other.primaryGenreName, primaryGenreName) ||
+                other.primaryGenreName == primaryGenreName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, artistName, artwork, previewUrl, trackName, collectionName);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        wrapperType,
+        kind,
+        artistId,
+        trackId,
+        artistName,
+        artwork,
+        previewUrl,
+        trackName,
+        collectionName,
+        trackCensoredName,
+        artistViewUrl,
+        trackViewUrl,
+        artworkUrl30,
+        artworkUrl60,
+        artworkUrl100,
+        collectionPrice,
+        trackPrice,
+        releaseDate,
+        collectionExplicitness,
+        trackExplicitness,
+        trackTimeMillis,
+        country,
+        currency,
+        primaryGenreName
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -388,35 +742,82 @@ class _$_ItunesSearchItem implements _ItunesSearchItem {
 
 abstract class _ItunesSearchItem implements ItunesSearchItem {
   const factory _ItunesSearchItem(
-      {@JsonKey(name: 'artistName')
-          required final String artistName,
-      @JsonKey(name: 'artworkUrl100')
-          required final String artwork,
-      @JsonKey(name: 'previewUrl')
-          final String? previewUrl,
-      @JsonKey(name: 'trackName')
-          required final String trackName,
-      @JsonKey(name: 'collectionName')
-          required final String collectionName}) = _$_ItunesSearchItem;
+      {required final String wrapperType,
+      required final String kind,
+      required final int artistId,
+      required final int trackId,
+      required final String artistName,
+      required final String artwork,
+      required final String previewUrl,
+      required final String trackName,
+      required final String collectionName,
+      required final String trackCensoredName,
+      required final String artistViewUrl,
+      required final String trackViewUrl,
+      required final String artworkUrl30,
+      required final String artworkUrl60,
+      required final String artworkUrl100,
+      required final double collectionPrice,
+      required final double trackPrice,
+      required final String releaseDate,
+      required final String collectionExplicitness,
+      required final String trackExplicitness,
+      required final int trackTimeMillis,
+      required final String country,
+      required final String currency,
+      required final String primaryGenreName}) = _$_ItunesSearchItem;
 
   factory _ItunesSearchItem.fromJson(Map<String, dynamic> json) =
       _$_ItunesSearchItem.fromJson;
 
   @override
-  @JsonKey(name: 'artistName')
+  String get wrapperType;
+  @override
+  String get kind;
+  @override
+  int get artistId;
+  @override
+  int get trackId;
+  @override
   String get artistName;
   @override
-  @JsonKey(name: 'artworkUrl100')
   String get artwork;
   @override
-  @JsonKey(name: 'previewUrl')
-  String? get previewUrl;
+  String get previewUrl;
   @override
-  @JsonKey(name: 'trackName')
   String get trackName;
   @override
-  @JsonKey(name: 'collectionName')
   String get collectionName;
+  @override
+  String get trackCensoredName;
+  @override
+  String get artistViewUrl;
+  @override
+  String get trackViewUrl;
+  @override
+  String get artworkUrl30;
+  @override
+  String get artworkUrl60;
+  @override
+  String get artworkUrl100;
+  @override
+  double get collectionPrice;
+  @override
+  double get trackPrice;
+  @override
+  String get releaseDate;
+  @override
+  String get collectionExplicitness;
+  @override
+  String get trackExplicitness;
+  @override
+  int get trackTimeMillis;
+  @override
+  String get country;
+  @override
+  String get currency;
+  @override
+  String get primaryGenreName;
   @override
   @JsonKey(ignore: true)
   _$$_ItunesSearchItemCopyWith<_$_ItunesSearchItem> get copyWith =>
