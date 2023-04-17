@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ventenny_task/models/itunes_search_old.dart';
+import 'package:ventenny_task/models/item_search.dart';
 
 ItemSearch parseItunesData(String jsonString) {
   String jsonWithoutBlankSpace = jsonString.trim();
