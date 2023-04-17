@@ -14,45 +14,49 @@ class ItunesItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        children: [
-          Row(
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
             children: [
-              Image.asset('assets/images/play_button.svg'),
+              const Icon(Icons.play_circle_fill),
               const SizedBox(
                 width: 8,
               ),
-              Column(
+              Expanded(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     trackName,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.fade,
+                    maxLines: 1,
+                    softWrap: false,
                   ),
+                  const SizedBox(height: 2),
+                  if (albumName.isNotEmpty) ...[
+                    Text(
+                      albumName,
+                      style: const TextStyle(),
+                    )
+                  ],
                   const SizedBox(height: 2),
                   Text(
                     artistName,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    albumName,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: const TextStyle(),
                   ),
                 ],
-              )
+              ))
             ],
           ),
-          const Divider(
-            height: 1,
-          )
-        ],
-      ),
+        ),
+        const Divider(
+          height: 1,
+        )
+      ],
     );
   }
 }
