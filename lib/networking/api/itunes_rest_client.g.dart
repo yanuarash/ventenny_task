@@ -19,7 +19,7 @@ class _ItunesRestClient implements ItunesRestClient {
   String? baseUrl;
 
   @override
-  Future<ItunesSearch> getData({
+  Future<String> getData({
     required artistName,
     required entity,
   }) async {
@@ -30,20 +30,19 @@ class _ItunesRestClient implements ItunesRestClient {
     };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<ItunesSearch>(Options(
+    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              'search',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ItunesSearch.fromJson(_result.data!);
+        .compose(
+          _dio.options,
+          'search',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data!;
     return value;
   }
 
