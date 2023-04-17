@@ -1,4 +1,6 @@
+import 'package:ventenny_task/helper/string_converter.dart';
 import 'package:ventenny_task/models/itunes_search.dart';
+import 'package:ventenny_task/models/item_search.dart';
 import 'package:ventenny_task/networking/api/itunes_rest_client.dart';
 
 class ItunesRepo {
@@ -6,7 +8,9 @@ class ItunesRepo {
 
   final ItunesRestClient client;
 
-  Future<ItunesSearch> getData({required String artistName}) async {
-    return await client.getData(artistName: artistName, entity: 'musicVideo');
+  Future<ItemSearch> getData({required String artistName}) async {
+    final response =
+        await client.getData(artistName: artistName, entity: 'musicVideo');
+    return parseItunesData(response);
   }
 }
