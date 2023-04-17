@@ -8,6 +8,7 @@ Dio dioClient() {
   dio
     ..options.contentType = contentType
     ..options.baseUrl = baseUrl
+    ..options.responseType = ResponseType.plain
     ..options.connectTimeout = const Duration(seconds: connectionTimeout)
     ..options.receiveTimeout = const Duration(seconds: receiveTimeout);
 

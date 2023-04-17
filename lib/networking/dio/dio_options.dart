@@ -1,6 +1,6 @@
 const String baseUrl = 'https://itunes.apple.com/';
 
-const String contentType = 'application/json';
+const String contentType = 'text/javascript';
 
 const int receiveTimeout = 20000;
 
