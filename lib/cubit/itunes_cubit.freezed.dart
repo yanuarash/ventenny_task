@@ -21,7 +21,7 @@ mixin _$ItunesState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(ItunesSearch data) success,
+    required TResult Function(ItemSearch data) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$ItunesState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(ItunesSearch data)? success,
+    TResult? Function(ItemSearch data)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$ItunesState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(ItunesSearch data)? success,
+    TResult Function(ItemSearch data)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(ItunesSearch data) success,
+    required TResult Function(ItemSearch data) success,
   }) {
     return initial();
   }
@@ -137,7 +137,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(ItunesSearch data)? success,
+    TResult? Function(ItemSearch data)? success,
   }) {
     return initial?.call();
   }
@@ -148,7 +148,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(ItunesSearch data)? success,
+    TResult Function(ItemSearch data)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -239,7 +239,7 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(ItunesSearch data) success,
+    required TResult Function(ItemSearch data) success,
   }) {
     return loading();
   }
@@ -250,7 +250,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(ItunesSearch data)? success,
+    TResult? Function(ItemSearch data)? success,
   }) {
     return loading?.call();
   }
@@ -261,7 +261,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(ItunesSearch data)? success,
+    TResult Function(ItemSearch data)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -377,7 +377,7 @@ class _$_Error implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(ItunesSearch data) success,
+    required TResult Function(ItemSearch data) success,
   }) {
     return error(message);
   }
@@ -388,7 +388,7 @@ class _$_Error implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(ItunesSearch data)? success,
+    TResult? Function(ItemSearch data)? success,
   }) {
     return error?.call(message);
   }
@@ -399,7 +399,7 @@ class _$_Error implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(ItunesSearch data)? success,
+    TResult Function(ItemSearch data)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -461,9 +461,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({ItunesSearch data});
-
-  $ItunesSearchCopyWith<$Res> get data;
+  $Res call({ItemSearch data});
 }
 
 /// @nodoc
@@ -476,22 +474,14 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$_Success(
-      null == data
+      freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ItunesSearch,
+              as ItemSearch,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ItunesSearchCopyWith<$Res> get data {
-    return $ItunesSearchCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -501,7 +491,7 @@ class _$_Success implements _Success {
   const _$_Success(this.data);
 
   @override
-  final ItunesSearch data;
+  final ItemSearch data;
 
   @override
   String toString() {
@@ -513,11 +503,12 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -531,7 +522,7 @@ class _$_Success implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(ItunesSearch data) success,
+    required TResult Function(ItemSearch data) success,
   }) {
     return success(data);
   }
@@ -542,7 +533,7 @@ class _$_Success implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(ItunesSearch data)? success,
+    TResult? Function(ItemSearch data)? success,
   }) {
     return success?.call(data);
   }
@@ -553,7 +544,7 @@ class _$_Success implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(ItunesSearch data)? success,
+    TResult Function(ItemSearch data)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -601,9 +592,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements ItunesState {
-  const factory _Success(final ItunesSearch data) = _$_Success;
+  const factory _Success(final ItemSearch data) = _$_Success;
 
-  ItunesSearch get data;
+  ItemSearch get data;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;

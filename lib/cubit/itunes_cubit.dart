@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:ventenny_task/models/itunes_search.dart';
+import 'package:ventenny_task/models/item_search.dart';
 import 'package:ventenny_task/networking/repo/itunes_repo.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
