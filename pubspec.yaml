@@ -26,6 +26,7 @@ dependencies:
   flutter_modular: ^5.0.3
   modular_test: ^2.0.0
   video_player: ^2.6.1
+  chewie: ^1.4.0
 
 dev_dependencies:
   flutter_test:
