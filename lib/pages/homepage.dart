@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:ventenny_task/cubit/itunes_cubit.dart';
+import 'package:ventenny_task/helper/debouncer.dart';
 import 'package:ventenny_task/widgets/list_itunes_widget.dart';
 import 'package:ventenny_task/widgets/search_widget.dart';
 import 'package:video_player/video_player.dart';
@@ -19,6 +20,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   final searchController = TextEditingController();
 
   late ChewieController _chewieController;
+  final _debouncer = Debouncer(milliseconds: 500);
 
   @override
   void initState() {
@@ -98,6 +100,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             child: BlocProvider.value(
               value: bloc,
               child: SearchWidget(
+                onChanged: (text) {
+                  _debouncer.run(() => bloc.getItunesData(artistName: text));
+                },
                 controller: searchController,
                 onSubmitted: (artistName) {
                   bloc.getItunesData(artistName: artistName);

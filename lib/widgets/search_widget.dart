@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget(
-      {super.key, required this.controller, required this.onSubmitted});
+      {super.key,
+      required this.controller,
+      required this.onSubmitted,
+      required this.onChanged});
 
   final TextEditingController controller;
   final Function(String artistName) onSubmitted;
+  final Function(String text) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +18,7 @@ class SearchWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: TextField(
+          onChanged: onChanged,
           style: const TextStyle(color: Colors.white),
           onSubmitted: (value) => onSubmitted(value),
           textInputAction: TextInputAction.search,
