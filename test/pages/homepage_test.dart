@@ -12,18 +12,14 @@ import 'package:ventenny_task/widgets/search_widget.dart';
 class MockItunesCubits extends MockCubit<ItunesState> implements ItunesCubit {}
 
 void main() {
-  // late MockItunesRepo mockItunesRepo;
   late MockItunesCubits mockItunesCubit;
   late AppModule appModule;
 
   setUpAll(() async {
-    // mockItunesRepo = MockItunesRepo();
     mockItunesCubit = MockItunesCubits();
     appModule = AppModule();
-    initModule(appModule, replaceBinds: [
-      // Bind.instance<ItunesRepo>(mockItunesRepo),
-      Bind.instance<ItunesCubit>(mockItunesCubit)
-    ]);
+    initModule(appModule,
+        replaceBinds: [Bind.instance<ItunesCubit>(mockItunesCubit)]);
     Modular.init(appModule);
   });
 
