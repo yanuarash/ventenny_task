@@ -6,11 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ventenny_task/cubit/itunes_cubit.dart';
 import 'package:ventenny_task/models/item_search.dart';
 import 'package:ventenny_task/modular/modular.dart';
-import 'package:ventenny_task/networking/repo/itunes_repo.dart';
 import 'package:ventenny_task/pages/homepage.dart';
 import 'package:ventenny_task/widgets/search_widget.dart';
-
-import '../api/mock_api.mocks.dart';
 
 class MockItunesCubits extends MockCubit<ItunesState> implements ItunesCubit {}
 
