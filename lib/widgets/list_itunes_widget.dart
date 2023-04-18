@@ -39,6 +39,9 @@ class _ListItunesWidgetState extends State<ListItunesWidget> {
             artistName: widget.data.results![index].artistName ?? "",
             albumName: widget.data.results![index].collectionName ?? "",
             trackName: widget.data.results![index].trackName ?? "",
+            icon: indexSelected == index + 1
+                ? const Icon(Icons.pause_circle_filled)
+                : const Icon(Icons.play_circle_fill),
           ),
         );
       },

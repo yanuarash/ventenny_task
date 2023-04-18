@@ -7,12 +7,14 @@ class ItunesItemWidget extends StatelessWidget {
     required this.trackName,
     required this.albumName,
     required this.backgroundColor,
+    required this.icon,
   });
 
   final String artistName;
   final String trackName;
   final String albumName;
   final Color backgroundColor;
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +22,9 @@ class ItunesItemWidget extends StatelessWidget {
       color: backgroundColor,
       child: Row(
         children: [
-          const Padding(
-            padding: EdgeInsets.fromLTRB(16, 16, 8, 16),
-            child: Icon(Icons.play_circle_fill),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 8, 16),
+            child: icon,
           ),
           const SizedBox(width: 8),
           Expanded(
