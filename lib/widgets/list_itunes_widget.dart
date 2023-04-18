@@ -26,9 +26,7 @@ class _ListItunesWidgetState extends State<ListItunesWidget> {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            if (widget.data.results![index].previewUrl != null) {
-              widget.onTap(widget.data.results![index].previewUrl!);
-            }
+            widget.onTap(widget.data.results![index].previewUrl ?? '');
             setState(() {
               indexSelected = index + 1;
             });

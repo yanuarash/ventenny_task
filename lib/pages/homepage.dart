@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:ventenny_task/cubit/itunes_cubit.dart';
+import 'package:ventenny_task/cubit/video_player_cubit.dart';
 import 'package:ventenny_task/helper/debouncer.dart';
 import 'package:ventenny_task/widgets/list_itunes_widget.dart';
 import 'package:ventenny_task/widgets/search_widget.dart';
@@ -17,6 +18,7 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget> {
   final bloc = Modular.get<ItunesCubit>();
+  final videoPlayerCubit = Modular.get<VideoPlayerCubit>();
   final searchController = TextEditingController();
 
   late ChewieController _chewieController;
@@ -60,7 +62,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         Container(
                           height: 250,
                           color: Colors.black,
-                          child: Chewie(controller: _chewieController),
+                          child: BlocBuilder<VideoPlayerCubit, bool>(
+                            bloc: videoPlayerCubit,
+                            builder: (context, state) {
+                              if (state) {
+                                return Chewie(controller: _chewieController);
+                              } else {
+                                return const Center(
+                                  child: Text(
+                                    'Video Not Found',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
                         ),
                         Expanded(
                           child: ListItunesWidget(
@@ -106,7 +122,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 controller: searchController,
                 onSubmitted: (artistName) {
                   bloc.getItunesData(artistName: artistName);
-                  _startPlay(null);
+                  _startPlay('');
                 },
               ),
             ),
@@ -140,20 +156,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     );
   }
 
-  void _startPlay(String? url) {
+  void _startPlay(String url) {
+    videoPlayerCubit.setVideoPlayer(isUrlExist: url.isNotEmpty);
     _chewieController.videoPlayerController.dispose();
     _chewieController.dispose();
 
     setState(() {});
 
     _chewieController = ChewieController(
-      videoPlayerController: VideoPlayerController.network(url ??
-          'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
+      videoPlayerController: VideoPlayerController.network(url.isNotEmpty
+          ? url
+          : 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
       aspectRatio: 16.0 / 9.0,
-      autoInitialize: url != null ? true : false,
-      autoPlay: url != null ? true : false,
-      showOptions: url != null ? true : false,
-      showControlsOnInitialize: url != null ? true : false,
+      autoInitialize: url.isNotEmpty ? true : false,
+      autoPlay: url.isNotEmpty ? true : false,
+      showOptions: url.isNotEmpty ? true : false,
+      showControlsOnInitialize: url.isNotEmpty ? true : false,
       errorBuilder: (context, errorMessage) {
         return Center(
           child: Padding(
