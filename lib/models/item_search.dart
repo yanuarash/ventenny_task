@@ -9,16 +9,16 @@ class ItemSearch {
     if (json['results'] != null) {
       results = <Results>[];
       json['results'].forEach((v) {
-        results!.add(new Results.fromJson(v));
+        results!.add(Results.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['resultCount'] = this.resultCount;
-    if (this.results != null) {
-      data['results'] = this.results!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['resultCount'] = resultCount;
+    if (results != null) {
+      data['results'] = results!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -125,38 +125,38 @@ class Results {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['wrapperType'] = this.wrapperType;
-    data['kind'] = this.kind;
-    data['artistId'] = this.artistId;
-    data['trackId'] = this.trackId;
-    data['artistName'] = this.artistName;
-    data['trackName'] = this.trackName;
-    data['trackCensoredName'] = this.trackCensoredName;
-    data['artistViewUrl'] = this.artistViewUrl;
-    data['trackViewUrl'] = this.trackViewUrl;
-    data['previewUrl'] = this.previewUrl;
-    data['artworkUrl30'] = this.artworkUrl30;
-    data['artworkUrl60'] = this.artworkUrl60;
-    data['artworkUrl100'] = this.artworkUrl100;
-    data['collectionPrice'] = this.collectionPrice;
-    data['trackPrice'] = this.trackPrice;
-    data['releaseDate'] = this.releaseDate;
-    data['collectionExplicitness'] = this.collectionExplicitness;
-    data['trackExplicitness'] = this.trackExplicitness;
-    data['trackTimeMillis'] = this.trackTimeMillis;
-    data['country'] = this.country;
-    data['currency'] = this.currency;
-    data['primaryGenreName'] = this.primaryGenreName;
-    data['collectionId'] = this.collectionId;
-    data['collectionName'] = this.collectionName;
-    data['collectionCensoredName'] = this.collectionCensoredName;
-    data['collectionViewUrl'] = this.collectionViewUrl;
-    data['discCount'] = this.discCount;
-    data['discNumber'] = this.discNumber;
-    data['trackCount'] = this.trackCount;
-    data['trackNumber'] = this.trackNumber;
-    data['contentAdvisoryRating'] = this.contentAdvisoryRating;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['wrapperType'] = wrapperType;
+    data['kind'] = kind;
+    data['artistId'] = artistId;
+    data['trackId'] = trackId;
+    data['artistName'] = artistName;
+    data['trackName'] = trackName;
+    data['trackCensoredName'] = trackCensoredName;
+    data['artistViewUrl'] = artistViewUrl;
+    data['trackViewUrl'] = trackViewUrl;
+    data['previewUrl'] = previewUrl;
+    data['artworkUrl30'] = artworkUrl30;
+    data['artworkUrl60'] = artworkUrl60;
+    data['artworkUrl100'] = artworkUrl100;
+    data['collectionPrice'] = collectionPrice;
+    data['trackPrice'] = trackPrice;
+    data['releaseDate'] = releaseDate;
+    data['collectionExplicitness'] = collectionExplicitness;
+    data['trackExplicitness'] = trackExplicitness;
+    data['trackTimeMillis'] = trackTimeMillis;
+    data['country'] = country;
+    data['currency'] = currency;
+    data['primaryGenreName'] = primaryGenreName;
+    data['collectionId'] = collectionId;
+    data['collectionName'] = collectionName;
+    data['collectionCensoredName'] = collectionCensoredName;
+    data['collectionViewUrl'] = collectionViewUrl;
+    data['discCount'] = discCount;
+    data['discNumber'] = discNumber;
+    data['trackCount'] = trackCount;
+    data['trackNumber'] = trackNumber;
+    data['contentAdvisoryRating'] = contentAdvisoryRating;
     return data;
   }
 }
