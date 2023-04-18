@@ -1,5 +1,4 @@
 import 'package:ventenny_task/helper/string_converter.dart';
-import 'package:ventenny_task/models/itunes_search.dart';
 import 'package:ventenny_task/models/item_search.dart';
 import 'package:ventenny_task/networking/api/itunes_rest_client.dart';
 
