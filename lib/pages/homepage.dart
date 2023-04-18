@@ -36,11 +36,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(builder: (context, orientation) {
-      if (orientation == Orientation.landscape) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _chewieController.enterFullScreen();
-        });
-      }
       return Column(
         children: [
           Expanded(
