@@ -23,6 +23,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   void initState() {
     super.initState();
+
     _chewieController = ChewieController(
       videoPlayerController: VideoPlayerController.network(
           'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
@@ -90,39 +91,41 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             child: Chewie(controller: _chewieController),
           ),
         ),
-        Flexible(
-          flex: 1,
-          child: SizedBox.expand(
+        Expanded(
             child: BlocConsumer<ItunesCubit, ItunesState>(
-              bloc: bloc,
-              listener: (context, state) {
-                state.whenOrNull(
-                  error: (error) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(error),
-                    ));
-                  },
+          bloc: bloc,
+          listener: (context, state) {
+            state.whenOrNull(
+              error: (error) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(error),
+                ));
+              },
+            );
+          },
+          builder: (context, state) {
+            return state.maybeWhen(
+              success: (data) {
+                return ListItunesWidget(
+                  data: data,
+                  onTap: _initializePlay,
                 );
               },
-              builder: (context, state) {
-                return state.maybeWhen(
-                  success: (data) {
-                    return ListItunesWidget(
-                      data: data,
-                      onTap: _initializePlay,
-                    );
-                  },
-                  loading: () {
-                    return const CircularProgressIndicator();
-                  },
-                  orElse: () {
-                    return const SizedBox();
-                  },
+              loading: () {
+                return const Center(
+                  child: SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(),
+                  ),
                 );
               },
-            ),
-          ),
-        ),
+              orElse: () {
+                return const SizedBox.shrink();
+              },
+            );
+          },
+        )),
         Flexible(
           flex: 0,
           child: BlocProvider.value(
