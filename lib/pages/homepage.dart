@@ -92,6 +92,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               },
             ),
           ),
+          const Divider(height: 1),
           Flexible(
             flex: 0,
             child: BlocProvider.value(
