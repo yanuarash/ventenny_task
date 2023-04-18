@@ -10,6 +10,6 @@ class AppModule extends Module {
   List<Bind> get binds => [
         Bind<ItunesRepo>((i) => ItunesRepo(ItunesRestClient(dioClient()))),
         Bind<ItunesCubit>((i) => ItunesCubit()),
-        Bind<VideoPlayerCubit>((i) => VideoPlayerCubit(false)),
+        Bind<VideoPlayerCubit>((i) => VideoPlayerCubit()),
       ];
 }
