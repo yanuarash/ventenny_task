@@ -36,7 +36,6 @@ class _ListItunesWidgetState extends State<ListItunesWidget> {
               });
             },
             child: ItunesItemWidget(
-              artworkUrl: widget.data.results![index].artworkUrl100 ?? "",
               artistName: widget.data.results![index].artistName ?? "",
               albumName: widget.data.results![index].collectionName ?? "",
               trackName: widget.data.results![index].trackName ?? "",
