@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ventenny_task/cubit/itunes_cubit.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key, required this.controller});
+  const SearchWidget(
+      {super.key, required this.controller, required this.onSubmitted});
 
   final TextEditingController controller;
+  final Function(String artistName) onSubmitted;
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<ItunesCubit>(context);
-
     return Padding(
       padding: const EdgeInsets.all(8),
       child: TextField(
-        onSubmitted: (value) {
-          bloc.getItunesData(artistName: value);
-        },
+        style: const TextStyle(color: Colors.white),
+        onSubmitted: (value) => onSubmitted(value),
         textInputAction: TextInputAction.search,
         controller: controller,
         decoration: const InputDecoration(
+          hintText: 'Search Artist Name - ex: "Jack Johnson"',
+          hintStyle: TextStyle(color: Colors.grey),
+          filled: true,
+          fillColor: Colors.black,
           prefixIcon: Icon(Icons.search),
-          border: OutlineInputBorder(),
-          labelText: 'Search Artist Name - ex: "Jack Johnson"',
+          prefixIconColor: Colors.white,
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black),
+              borderRadius: BorderRadius.all(Radius.circular(50))),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black),
+              borderRadius: BorderRadius.all(Radius.circular(50))),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black),
+              borderRadius: BorderRadius.all(Radius.circular(50))),
         ),
       ),
     );
