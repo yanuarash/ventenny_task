@@ -62,19 +62,33 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         Container(
                           height: 250,
                           color: Colors.black,
-                          child: BlocBuilder<VideoPlayerCubit, bool>(
+                          child:
+                              BlocBuilder<VideoPlayerCubit, VideoPlayerState>(
                             bloc: videoPlayerCubit,
-                            builder: (context, state) {
-                              if (state) {
-                                return Chewie(controller: _chewieController);
-                              } else {
-                                return const Center(
-                                  child: Text(
-                                    'Video Not Found',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                );
-                              }
+                            builder: (context, videoState) {
+                              return videoState.when(
+                                initial: () {
+                                  return const Center(
+                                    child: Text(
+                                      'Select a song to play music video',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  );
+                                },
+                                setVideoPlayer: (shouldPlayerShown) {
+                                  if (shouldPlayerShown) {
+                                    return Chewie(
+                                        controller: _chewieController);
+                                  } else {
+                                    return const Center(
+                                      child: Text(
+                                        'Video Not Found',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    );
+                                  }
+                                },
+                              );
                             },
                           ),
                         ),
@@ -154,6 +168,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         );
       },
     );
+
+    videoPlayerCubit.initPlayer();
   }
 
   void _startPlay(String url) {
