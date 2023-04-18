@@ -23,11 +23,103 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   void initState() {
     super.initState();
+    _initializePlayer();
+  }
 
+  @override
+  void dispose() {
+    _chewieController.videoPlayerController.dispose();
+    _chewieController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return OrientationBuilder(builder: (context, orientation) {
+      if (orientation == Orientation.landscape) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _chewieController.enterFullScreen();
+        });
+      }
+      return Column(
+        children: [
+          Expanded(
+            child: BlocConsumer<ItunesCubit, ItunesState>(
+              bloc: bloc,
+              listener: (context, state) {
+                state.whenOrNull(
+                  error: (error) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(error),
+                    ));
+                  },
+                );
+              },
+              builder: (context, state) {
+                return state.maybeWhen(
+                  success: (data) {
+                    return Column(
+                      children: [
+                        Container(
+                          height: 250,
+                          color: Colors.black,
+                          child: Chewie(controller: _chewieController),
+                        ),
+                        Expanded(
+                          child: ListItunesWidget(
+                            data: data,
+                            onTap: _startPlay,
+                          ),
+                        )
+                      ],
+                    );
+                  },
+                  loading: () {
+                    return const Center(
+                      child: SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(),
+                      ),
+                    );
+                  },
+                  noData: (message) {
+                    return Center(
+                      child: Text(
+                        message,
+                      ),
+                    );
+                  },
+                  orElse: () {
+                    return const SizedBox.shrink();
+                  },
+                );
+              },
+            ),
+          ),
+          Flexible(
+            flex: 0,
+            child: BlocProvider.value(
+              value: bloc,
+              child: SearchWidget(
+                controller: searchController,
+                onSubmitted: (artistName) {
+                  bloc.getItunesData(artistName: artistName);
+                  _startPlay(null);
+                },
+              ),
+            ),
+          )
+        ],
+      );
+    });
+  }
+
+  void _initializePlayer() {
     _chewieController = ChewieController(
       videoPlayerController: VideoPlayerController.network(
           'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
-      aspectRatio: 4 / 3,
+      aspectRatio: 16 / 9,
       autoInitialize: false,
       showControls: false,
       showOptions: false,
@@ -47,18 +139,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     );
   }
 
-  void _initializePlay(String url) {
+  void _startPlay(String? url) {
     _chewieController.videoPlayerController.dispose();
     _chewieController.dispose();
 
     setState(() {});
 
     _chewieController = ChewieController(
-      videoPlayerController: VideoPlayerController.network(url),
+      videoPlayerController: VideoPlayerController.network(url ??
+          'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
       aspectRatio: 16.0 / 9.0,
-      autoInitialize: true,
-      autoPlay: true,
-      looping: true,
+      autoInitialize: url != null ? true : false,
+      autoPlay: url != null ? true : false,
+      showOptions: url != null ? true : false,
+      showControlsOnInitialize: url != null ? true : false,
       errorBuilder: (context, errorMessage) {
         return Center(
           child: Padding(
@@ -70,70 +164,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           ),
         );
       },
-    );
-  }
-
-  @override
-  void dispose() {
-    _chewieController.videoPlayerController.dispose();
-    _chewieController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Flexible(
-          flex: 1,
-          child: Container(
-            color: Colors.black,
-            child: Chewie(controller: _chewieController),
-          ),
-        ),
-        Expanded(
-            child: BlocConsumer<ItunesCubit, ItunesState>(
-          bloc: bloc,
-          listener: (context, state) {
-            state.whenOrNull(
-              error: (error) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(error),
-                ));
-              },
-            );
-          },
-          builder: (context, state) {
-            return state.maybeWhen(
-              success: (data) {
-                return ListItunesWidget(
-                  data: data,
-                  onTap: _initializePlay,
-                );
-              },
-              loading: () {
-                return const Center(
-                  child: SizedBox(
-                    height: 20,
-                    width: 20,
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              },
-              orElse: () {
-                return const SizedBox.shrink();
-              },
-            );
-          },
-        )),
-        Flexible(
-          flex: 0,
-          child: BlocProvider.value(
-            value: bloc,
-            child: SearchWidget(controller: searchController),
-          ),
-        )
-      ],
     );
   }
 }
