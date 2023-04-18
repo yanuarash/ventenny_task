@@ -14,18 +14,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = Modular.get<ItunesCubit>();
-
     return MaterialApp(
       title: 'Flutter Assignment',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider(
-        create: (context) => cubit,
-        child: const Scaffold(
-          body: SafeArea(child: HomePageWidget()),
-        ),
+      home: const Scaffold(
+        body: SafeArea(child: HomePageWidget()),
       ),
     );
   }
