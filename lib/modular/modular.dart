@@ -7,7 +7,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 class AppModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind<ItunesRepo>(((i) => ItunesRepo(ItunesRestClient(dioClient())))),
-        Bind<ItunesCubit>(((i) => ItunesCubit())),
+        Bind<ItunesRepo>((i) => ItunesRepo(ItunesRestClient(dioClient()))),
+        Bind<ItunesCubit>((i) => ItunesCubit()),
       ];
 }
