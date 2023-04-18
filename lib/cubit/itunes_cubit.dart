@@ -20,7 +20,9 @@ class ItunesCubit extends Cubit<ItunesState> {
       if (response.resultCount != 0) {
         emit(ItunesState.success(response));
       } else {
-        emit(ItunesState.noData('No data found for "$artistName" keyword'));
+        emit(ItunesState.noData(artistName.isEmpty
+            ? ''
+            : 'No data found for "$artistName" keyword'));
       }
     } on DioError catch (_) {
       emit(const ItunesState.error('Error Fetching Data!'));
