@@ -24,22 +24,21 @@ class _ListItunesWidgetState extends State<ListItunesWidget> {
       itemCount: widget.data.results!.length,
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return Container(
-          color: indexSelected == index + 1 ? Colors.grey[200] : Colors.white,
-          child: InkWell(
-            onTap: () {
-              if (widget.data.results![index].previewUrl != null) {
-                widget.onTap(widget.data.results![index].previewUrl!);
-              }
-              setState(() {
-                indexSelected = index + 1;
-              });
-            },
-            child: ItunesItemWidget(
-              artistName: widget.data.results![index].artistName ?? "",
-              albumName: widget.data.results![index].collectionName ?? "",
-              trackName: widget.data.results![index].trackName ?? "",
-            ),
+        return InkWell(
+          onTap: () {
+            if (widget.data.results![index].previewUrl != null) {
+              widget.onTap(widget.data.results![index].previewUrl!);
+            }
+            setState(() {
+              indexSelected = index + 1;
+            });
+          },
+          child: ItunesItemWidget(
+            backgroundColor:
+                indexSelected == index + 1 ? Colors.grey[200]! : Colors.white,
+            artistName: widget.data.results![index].artistName ?? "",
+            albumName: widget.data.results![index].collectionName ?? "",
+            trackName: widget.data.results![index].trackName ?? "",
           ),
         );
       },
