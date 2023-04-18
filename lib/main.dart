@@ -23,11 +23,8 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
         create: (context) => cubit,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Flutter Assignment'),
-          ),
-          body: const HomePageWidget(),
+        child: const Scaffold(
+          body: SafeArea(child: HomePageWidget()),
         ),
       ),
     );
