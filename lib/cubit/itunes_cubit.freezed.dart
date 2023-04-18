@@ -22,6 +22,7 @@ mixin _$ItunesState {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(ItemSearch data) success,
+    required TResult Function(String message) noData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$ItunesState {
     TResult? Function()? loading,
     TResult? Function(String message)? error,
     TResult? Function(ItemSearch data)? success,
+    TResult? Function(String message)? noData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$ItunesState {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(ItemSearch data)? success,
+    TResult Function(String message)? noData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$ItunesState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_noData value) noData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$ItunesState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_noData value)? noData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$ItunesState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_noData value)? noData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +133,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(ItemSearch data) success,
+    required TResult Function(String message) noData,
   }) {
     return initial();
   }
@@ -138,6 +145,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? loading,
     TResult? Function(String message)? error,
     TResult? Function(ItemSearch data)? success,
+    TResult? Function(String message)? noData,
   }) {
     return initial?.call();
   }
@@ -149,6 +157,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(ItemSearch data)? success,
+    TResult Function(String message)? noData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -164,6 +173,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_noData value) noData,
   }) {
     return initial(this);
   }
@@ -175,6 +185,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_noData value)? noData,
   }) {
     return initial?.call(this);
   }
@@ -186,6 +197,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_noData value)? noData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -240,6 +252,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(ItemSearch data) success,
+    required TResult Function(String message) noData,
   }) {
     return loading();
   }
@@ -251,6 +264,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? loading,
     TResult? Function(String message)? error,
     TResult? Function(ItemSearch data)? success,
+    TResult? Function(String message)? noData,
   }) {
     return loading?.call();
   }
@@ -262,6 +276,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(ItemSearch data)? success,
+    TResult Function(String message)? noData,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -277,6 +292,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_noData value) noData,
   }) {
     return loading(this);
   }
@@ -288,6 +304,7 @@ class _$_Loading implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_noData value)? noData,
   }) {
     return loading?.call(this);
   }
@@ -299,6 +316,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_noData value)? noData,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -378,6 +396,7 @@ class _$_Error implements _Error {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(ItemSearch data) success,
+    required TResult Function(String message) noData,
   }) {
     return error(message);
   }
@@ -389,6 +408,7 @@ class _$_Error implements _Error {
     TResult? Function()? loading,
     TResult? Function(String message)? error,
     TResult? Function(ItemSearch data)? success,
+    TResult? Function(String message)? noData,
   }) {
     return error?.call(message);
   }
@@ -400,6 +420,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(ItemSearch data)? success,
+    TResult Function(String message)? noData,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -415,6 +436,7 @@ class _$_Error implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_noData value) noData,
   }) {
     return error(this);
   }
@@ -426,6 +448,7 @@ class _$_Error implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_noData value)? noData,
   }) {
     return error?.call(this);
   }
@@ -437,6 +460,7 @@ class _$_Error implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_noData value)? noData,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -474,10 +498,10 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$_Success(
-      freezed == data
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as ItemSearch,
@@ -503,12 +527,11 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
@@ -523,6 +546,7 @@ class _$_Success implements _Success {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(ItemSearch data) success,
+    required TResult Function(String message) noData,
   }) {
     return success(data);
   }
@@ -534,6 +558,7 @@ class _$_Success implements _Success {
     TResult? Function()? loading,
     TResult? Function(String message)? error,
     TResult? Function(ItemSearch data)? success,
+    TResult? Function(String message)? noData,
   }) {
     return success?.call(data);
   }
@@ -545,6 +570,7 @@ class _$_Success implements _Success {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(ItemSearch data)? success,
+    TResult Function(String message)? noData,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -560,6 +586,7 @@ class _$_Success implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_noData value) noData,
   }) {
     return success(this);
   }
@@ -571,6 +598,7 @@ class _$_Success implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_noData value)? noData,
   }) {
     return success?.call(this);
   }
@@ -582,6 +610,7 @@ class _$_Success implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_noData value)? noData,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -597,5 +626,154 @@ abstract class _Success implements ItunesState {
   ItemSearch get data;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_noDataCopyWith<$Res> {
+  factory _$$_noDataCopyWith(_$_noData value, $Res Function(_$_noData) then) =
+      __$$_noDataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_noDataCopyWithImpl<$Res>
+    extends _$ItunesStateCopyWithImpl<$Res, _$_noData>
+    implements _$$_noDataCopyWith<$Res> {
+  __$$_noDataCopyWithImpl(_$_noData _value, $Res Function(_$_noData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_noData(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_noData implements _noData {
+  const _$_noData(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ItunesState.noData(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_noData &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_noDataCopyWith<_$_noData> get copyWith =>
+      __$$_noDataCopyWithImpl<_$_noData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(ItemSearch data) success,
+    required TResult Function(String message) noData,
+  }) {
+    return noData(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function(ItemSearch data)? success,
+    TResult? Function(String message)? noData,
+  }) {
+    return noData?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(ItemSearch data)? success,
+    TResult Function(String message)? noData,
+    required TResult orElse(),
+  }) {
+    if (noData != null) {
+      return noData(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_noData value) noData,
+  }) {
+    return noData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_noData value)? noData,
+  }) {
+    return noData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_noData value)? noData,
+    required TResult orElse(),
+  }) {
+    if (noData != null) {
+      return noData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _noData implements ItunesState {
+  const factory _noData(final String message) = _$_noData;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_noDataCopyWith<_$_noData> get copyWith =>
       throw _privateConstructorUsedError;
 }

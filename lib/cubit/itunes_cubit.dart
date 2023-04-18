@@ -18,7 +18,11 @@ class ItunesCubit extends Cubit<ItunesState> {
     emit(const ItunesState.loading());
     try {
       final response = await repo.getData(artistName: artistName);
-      emit(ItunesState.success(response));
+      if (response.resultCount != 0) {
+        emit(ItunesState.success(response));
+      } else {
+        emit(ItunesState.noData('No data found for "$artistName" keyword'));
+      }
     } on DioError catch (_) {
       emit(const ItunesState.error('Error Fetching Data!'));
     }
