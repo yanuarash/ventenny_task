@@ -15,7 +15,7 @@ class ItemSearch {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['resultCount'] = resultCount;
     if (results != null) {
       data['results'] = results!.map((v) => v.toJson()).toList();
@@ -125,7 +125,7 @@ class Results {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['wrapperType'] = wrapperType;
     data['kind'] = kind;
     data['artistId'] = artistId;
