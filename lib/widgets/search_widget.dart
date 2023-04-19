@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ventenny_task/strings/app_strings.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget(
@@ -23,20 +24,20 @@ class SearchWidget extends StatelessWidget {
           onSubmitted: (value) => onSubmitted(value),
           textInputAction: TextInputAction.search,
           controller: controller,
-          decoration: const InputDecoration(
-            hintText: 'Search Artist Name - ex: "Jack Johnson"',
-            hintStyle: TextStyle(color: Colors.grey),
+          decoration: InputDecoration(
+            hintText: AppStrings.searchHint,
+            hintStyle: const TextStyle(color: Colors.grey),
             filled: true,
             fillColor: Colors.black,
-            prefixIcon: Icon(Icons.search),
+            prefixIcon: const Icon(Icons.search),
             prefixIconColor: Colors.white,
-            enabledBorder: OutlineInputBorder(
+            enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.black),
                 borderRadius: BorderRadius.all(Radius.circular(50))),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.black),
                 borderRadius: BorderRadius.all(Radius.circular(50))),
-            border: OutlineInputBorder(
+            border: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.black),
                 borderRadius: BorderRadius.all(Radius.circular(50))),
           ),

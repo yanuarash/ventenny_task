@@ -5,6 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:ventenny_task/cubit/itunes_cubit.dart';
 import 'package:ventenny_task/cubit/video_player_cubit.dart';
 import 'package:ventenny_task/helper/debouncer.dart';
+import 'package:ventenny_task/strings/app_strings.dart';
 import 'package:ventenny_task/widgets/list_itunes_widget.dart';
 import 'package:ventenny_task/widgets/search_widget.dart';
 import 'package:video_player/video_player.dart';
@@ -68,10 +69,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             builder: (context, videoState) {
                               return videoState.when(
                                 initial: () {
-                                  return const Center(
+                                  return Center(
                                     child: Text(
-                                      'Select a song to play music video',
-                                      style: TextStyle(color: Colors.white),
+                                      AppStrings.selectSong,
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     ),
                                   );
                                 },
@@ -80,10 +82,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     return Chewie(
                                         controller: _chewieController);
                                   } else {
-                                    return const Center(
+                                    return Center(
                                       child: Text(
-                                        'Video Not Found',
-                                        style: TextStyle(color: Colors.white),
+                                        AppStrings.videoNotFound,
+                                        style: const TextStyle(
+                                            color: Colors.white),
                                       ),
                                     );
                                   }
@@ -148,8 +151,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   void _initializePlayer() {
     _chewieController = ChewieController(
-      videoPlayerController: VideoPlayerController.network(
-          'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
+      videoPlayerController:
+          VideoPlayerController.network(AppStrings.urlDefaultVideo),
       aspectRatio: 16 / 9,
       autoInitialize: false,
       showControls: false,
@@ -180,9 +183,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     setState(() {});
 
     _chewieController = ChewieController(
-      videoPlayerController: VideoPlayerController.network(url.isNotEmpty
-          ? url
-          : 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
+      videoPlayerController: VideoPlayerController.network(
+          url.isNotEmpty ? url : AppStrings.urlDefaultVideo),
       aspectRatio: 16.0 / 9.0,
       autoInitialize: url.isNotEmpty ? true : false,
       autoPlay: url.isNotEmpty ? true : false,
